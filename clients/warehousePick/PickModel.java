@@ -7,6 +7,7 @@ import middle.OrderException;
 import middle.OrderProcessing;
 import middle.StockReadWriter;
 
+import java.util.List;
 import java.util.Observable;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -134,6 +135,11 @@ public class PickModel extends Observable
         theBasket.set( null );                //  Picked
         int no = basket.getOrderNum();        //  Order no
         theOrder.informOrderPicked( no );     //  Tell system
+        
+        
+        //List<String> itemsBought = basket.getBasketItems(); // Get items from the basket
+        //updateReceipt(itemsBought); // Update the receipt with the bought items
+        
         theAction = "";                       //  Inform picker
         worker.free();                        //  Can pick some more
       } else {                                // F 
@@ -148,6 +154,11 @@ public class PickModel extends Observable
     }
     setChanged(); notifyObservers(theAction);
   }
+  
+  private void updateReceipt(List<String> itemsBought) {
+	  
+  }
+  
 }
 
 

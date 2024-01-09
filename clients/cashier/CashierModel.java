@@ -159,6 +159,7 @@ public class CashierModel extends Observable
     setChanged(); notifyObservers(theAction); // Notify
   }
 
+
   /**
    * ask for update of view callled at start of day
    * or after system reset
@@ -187,6 +188,35 @@ public class CashierModel extends Observable
       }
     }
   }
+ 
+  
+  public void doClear()
+  {
+    String theAction = "";
+    theBasket.clear();                        // Clear basket
+    theAction = "Welcome";       // Re-set display
+    setChanged(); notifyObservers(theAction);
+  }
+  
+  
+ 
+ 
+  public void doRemove()
+  {
+	  String theAction = "";
+	    
+	    if (!theBasket.isEmpty()) { //! negates 'isEmpty()' method to check if NOT empty
+	    	 int lastIndex = theBasket.size() - 1; 
+	         theBasket.remove(lastIndex); // Remove the item at the last index basket size-1
+	        theAction = "Last item removed from the basket"; // Display message
+	    } else {
+	        theAction = "Welcome";
+	    }
+	    setChanged(); notifyObservers(theAction);
+	  
+  }
+
+  
 
   /**
    * return an instance of a new Basket
@@ -196,5 +226,9 @@ public class CashierModel extends Observable
   {
     return new Basket();
   }
+
+
+
+
 }
   

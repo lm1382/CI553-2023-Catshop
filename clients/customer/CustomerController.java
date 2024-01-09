@@ -37,7 +37,11 @@ public class CustomerController
   {
     model.doClear();
   }
-
+/*
+  public void doCatalogue() {
+	  CustomerCatalogue.startCustomerCatalogue();
+  }
+  */
   
 }
 

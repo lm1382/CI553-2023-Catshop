@@ -20,50 +20,41 @@ class Setup
 
 //  "drop table ProductList",
 //  "drop table StockList",
+		  
+		  "insert into ProductTable values " +
+		     "('0001', '40 inch LED HD TV', 'images/pic0001.jpg', 269.00)",
+		  "insert into ProductTable values " +
+		     "('0002', 'DAB Radio',         'images/pic0002.jpg', 29.99)",
+		  "insert into ProductTable values " +
+		     "('0003', 'Toaster',           'images/pic0003.jpg', 19.99)",
+		  "insert into ProductTable values " +
+		     "('0004', 'Watch',             'images/pic0004.jpg', 29.99)",
+		  "insert into ProductTable values " +
+		     "('0005', 'Digital Camera',    'images/pic0005.jpg', 89.99)",
+		  "insert into ProductTable values " +
+		     "('0006', 'MP3 player',        'images/pic0006.jpg', 7.99)",
+		  "insert into ProductTable values " +
+		     "('0007', '32Gb USB2 drive',   'images/pic0007.jpg', 6.99)",
+		//  "select * from ProductTable",
 
 
-  "drop table ProductTable",
-  "create table ProductTable ("+
-      "productNo      Char(4)," +
-      "description    Varchar(40)," +
-      "picture        Varchar(80)," +
-      "price          Float)",
+		  "drop table StockTable",
+		  "create table StockTable ("+
+		      "productNo      Char(4)," +
+		      "stockLevel     Integer)",
 
-  "insert into ProductTable values " +
-     "('0001', '40 inch LED HD TV', 'images/pic0001.jpg', 269.00)",
-  "insert into ProductTable values " +
-     "('0002', 'DAB Radio',         'images/pic0002.jpg', 29.99)",
-  "insert into ProductTable values " +
-     "('0003', 'Toaster',           'images/pic0003.jpg', 19.99)",
-  "insert into ProductTable values " +
-     "('0004', 'Watch',             'images/pic0004.jpg', 29.99)",
-  "insert into ProductTable values " +
-     "('0005', 'Digital Camera',    'images/pic0005.jpg', 89.99)",
-  "insert into ProductTable values " +
-     "('0006', 'MP3 player',        'images/pic0006.jpg', 7.99)",
-  "insert into ProductTable values " +
-     "('0007', '32Gb USB2 drive',   'images/pic0007.jpg', 6.99)",
-//  "select * from ProductTable",
+		  "insert into StockTable values ( '0001',  90 )",
+		  "insert into StockTable values ( '0002',  20 )",
+		  "insert into StockTable values ( '0003',  33 )",
+		  "insert into StockTable values ( '0004',  10 )",
+		  "insert into StockTable values ( '0005',  17 )",
+		  "insert into StockTable values ( '0006',  15 )",
+		  "insert into StockTable values ( '0007',  01 )",
 
-
-  "drop table StockTable",
-  "create table StockTable ("+
-      "productNo      Char(4)," +
-      "stockLevel     Integer)",
-
-  "insert into StockTable values ( '0001',  90 )",
-  "insert into StockTable values ( '0002',  20 )",
-  "insert into StockTable values ( '0003',  33 )",
-  "insert into StockTable values ( '0004',  10 )",
-  "insert into StockTable values ( '0005',  17 )",
-  "insert into StockTable values ( '0006',  15 )",
-  "insert into StockTable values ( '0007',  01 )",
-
-  "select * from StockTable, ProductTable " +
-          " where StockTable.productNo = ProductTable.productNo"
-
- };
-
+		  "select * from StockTable, ProductTable " + 
+		  " where StockTable.productNo = ProductTable.productNo"
+  };
+				  
   public static void main(String[] args)
   {
     Connection theCon    = null;      // Connection to database

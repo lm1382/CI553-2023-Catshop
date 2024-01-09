@@ -27,6 +27,8 @@ public class DisplayView extends Canvas implements Observer
   private String textToDisplay = "";
   private DisplayController cont= null;
   
+
+  
   /**
    * Construct the view
    * @param rpc   Window in which to construct
@@ -128,19 +130,27 @@ public class DisplayView extends Canvas implements Observer
  
   public void drawActualScreen( Graphics2D g )  // Re draw contents 
   {
-    g.setPaint( Color.white );            // Paint Colour 
+    //g.setPaint( Color.white );            // Paint Colour 
+    g.setPaint(new Color(115, 115, 115)); // Light gray background
     W = getWidth(); H = getHeight();      // Current size
+    g.fill(new Rectangle2D.Double(0, 0, W, H));
     
+    Font font = new Font("Courier", Font.ITALIC, 24);
     g.setFont( font );
     g.fill( new Rectangle2D.Double( 0, 0, W, H ) );
 
     // Draw state of system on display
     String lines[] = textToDisplay.split("\n");
-    g.setPaint( Color.black );
+    g.setPaint( Color.white );
     for ( int i=0; i<lines.length; i++ )
     {
-      g.drawString( lines[i], 0, 50 + 50*i );
+      //g.drawString( lines[i], 0, 50 + 50*i );
+      g.drawString(lines[i], 10, 60 + 50 * i); 
     }
+    
+   
+
+
     
   }
 

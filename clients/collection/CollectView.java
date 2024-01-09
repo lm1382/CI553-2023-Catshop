@@ -58,7 +58,18 @@ public class CollectView implements Observer
     theBtCollect.addActionListener(                 // Call back code
       e -> cont.doCollect( theInput.getText()) );
     cp.add( theBtCollect );                         //  Add to canvas
-
+    
+    
+    theBtCollect.setBounds( 16, 25+60*0, 80, 40 );  // Check Button
+    theBtCollect.addActionListener(e ->{
+    	CollectReceipt collectReceipt = new CollectReceipt();
+    	collectReceipt.startReceipt(rpc, mf, x, y);
+    	cont.doCollect(COLLECT);
+    });
+    cp.add( theBtCollect );
+   
+    
+    
     theAction.setBounds( 110, 25 , 270, 20 );       // Message area
     theAction.setText( "" );                        // Blank
     cp.add( theAction );                            //  Add to canvas
